@@ -1,0 +1,1 @@
+C:\Users\shueb\Downloads\Earthquake2\Earthquake2\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\661i2t6s\obj\arm64-v8a

@@ -1,0 +1,5 @@
+C:/Users/shueb/Downloads/Earthquake2/Earthquake2/.utmp/RelWithDebInfo/661i2t6s/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/shueb/Downloads/Earthquake2/Earthquake2/.utmp/RelWithDebInfo/661i2t6s/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/shueb/Downloads/Earthquake2/Earthquake2/.utmp/RelWithDebInfo/661i2t6s/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/shueb/Downloads/Earthquake2/Earthquake2/.utmp/RelWithDebInfo/661i2t6s/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/shueb/Downloads/Earthquake2/Earthquake2/.utmp/RelWithDebInfo/661i2t6s/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

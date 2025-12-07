@@ -1,0 +1,10 @@
+# ninja log v5
+42	3017	7866591477876841	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	801d923e02191157
+53	3033	7866591477927347	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	e4332debe80d986e
+1	3037	7866591477998326	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	4373991f3394a4b1
+65	3045	7866591478219863	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	54127a51cc246212
+12	3109	7866591478872655	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	bc6a68d5b36a5787
+77	3355	7866591481330068	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	c4dbf24134552d09
+31	3385	7866591481639341	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1e08d4e6e9ded5d1
+21	3483	7866591482572172	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	46a5042eecb67311
+3484	3649	7866591484266729	C:/Users/shueb/Downloads/Earthquake2/Earthquake2/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/661i2t6s/obj/arm64-v8a/libgame.so	e272b155b1b78e61

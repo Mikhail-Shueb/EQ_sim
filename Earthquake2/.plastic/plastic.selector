@@ -1,0 +1,4 @@
+repository "Earthquake/Earthquake_Prototype@6872539762849@cloud"
+  path "/"
+    br "/main"
+    co "/main"
