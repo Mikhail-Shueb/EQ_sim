@@ -26,9 +26,22 @@ public class VRLock : MonoBehaviour
         }
     }
     
+    void LateUpdate()
+    {
+        // Enforce key position if inserted (Fighting XRI overriding position)
+        if (isUnlocked && insertedKey != null && keyInsertPoint != null)
+        {
+             insertedKey.transform.position = keyInsertPoint.position;
+             insertedKey.transform.rotation = keyInsertPoint.rotation;
+             
+             // Ensure physics stay off
+             Rigidbody rb = insertedKey.GetComponent<Rigidbody>();
+             if (rb != null && !rb.isKinematic) rb.isKinematic = true;
+        }
+    }
+    
     void Update()
     {
-
         if (!isUnlocked)
         {
             CheckForKeyInsertion();
@@ -37,21 +50,44 @@ public class VRLock : MonoBehaviour
     
     void CheckForKeyInsertion()
     {
+        if (keyInsertPoint == null) return; // Safety check
 
-        VRKey[] keys = FindObjectsOfType<VRKey>();
+        // Use OverlapSphere to detect keys nearby, instead of searching the whole scene
+        Collider[] hitColliders = Physics.OverlapSphere(keyInsertPoint.position, 0.2f); // 0.2f radius
         
-        foreach (VRKey key in keys)
+        // Debug.Log($"[LockDebug] Checking sphere. Found {hitColliders.Length} colliders.");
+
+        foreach (var hitCollider in hitColliders)
         {
-            if (key.GetKeyID() == requiredKeyID && key.IsBeingHeld())
+            // FIX: VRKey might be on the parent of the collider object
+            VRKey key = hitCollider.GetComponentInParent<VRKey>();
+            
+            if (key != null)
             {
-                float distance = Vector3.Distance(key.transform.position, keyInsertPoint.position);
-                
-                if (distance < insertDistance)
+                Debug.Log($"[LockDebug] Found a Key nearby! ID: {key.GetKeyID()} (Required: {requiredKeyID}) | Held: {key.IsBeingHeld()}");
+
+                if (key.GetKeyID() == requiredKeyID && key.IsBeingHeld())
                 {
-                    InsertKey(key);
-                    break;
+                    // Check distance again if needed, or just trust the sphere
+                    float distance = Vector3.Distance(key.transform.position, keyInsertPoint.position);
+                    Debug.Log($"[LockDebug] Key Distance: {distance} (Max: {insertDistance})");
+                    
+                    if (distance < insertDistance)
+                    {
+                        InsertKey(key);
+                        break; 
+                    }
                 }
             }
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (keyInsertPoint != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(keyInsertPoint.position, 0.2f);
         }
     }
     
@@ -63,6 +99,16 @@ public class VRLock : MonoBehaviour
         key.transform.position = keyInsertPoint.position;
         key.transform.rotation = keyInsertPoint.rotation;
         
+        // FIX: Parent the key to the lock so it moves with the door
+        key.transform.SetParent(keyInsertPoint);
+
+        // FIX: Disable physics so gravity doesn't pull it out
+        Rigidbody keyRb = key.GetComponent<Rigidbody>();
+        if (keyRb != null)
+        {
+            keyRb.isKinematic = true;
+        }
+
         UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable = key.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         if (grabInteractable != null)
         {

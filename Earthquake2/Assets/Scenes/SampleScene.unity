@@ -2356,7 +2356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a1ba0fda27597d04d8a8e7a0a5e16240, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.319
+      value: 0.317
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a1ba0fda27597d04d8a8e7a0a5e16240, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2619,6 +2619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyID: outkey
+  hitboxScale: 1.5
 --- !u!114 &1148419623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2632,6 +2633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyID: betaKey
+  hitboxScale: 1.5
 --- !u!1001 &1258267043
 PrefabInstance:
   m_ObjectHideFlags: 0
